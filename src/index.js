@@ -57,7 +57,7 @@ app.get('/todos', checksExistsUserAccount, (request, response) => {
 app.post('/todos', checksExistsUserAccount, (request, response) => {
   const {user} = request;
   const {title, deadline} = request.body;
-
+  
   // date format => yyyy/mm/dd
 
   const todo = {
