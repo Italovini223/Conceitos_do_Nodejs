@@ -47,12 +47,18 @@ app.post('/users', (request, response) => {
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
 
-  // Complete aqui
+  const {user} = request;
+
+  const userTodos = user.todos;
+
+  return response.status(200).json(userTodos);
 });
 
 app.post('/todos', checksExistsUserAccount, (request, response) => {
   const {user} = request;
   const {title, deadline} = request.body;
+
+  // date format => yyyy/mm/dd
 
   const todo = {
     id: uuidv4(),
